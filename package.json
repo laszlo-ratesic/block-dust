@@ -12,20 +12,29 @@
     "url": "git+https://github.com/laszlo-ratesic/block-dust.git"
   },
   "keywords": [],
-  "author": "",
+  "author": "Keenan Chiasson",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/laszlo-ratesic/block-dust/issues"
   },
   "homepage": "https://github.com/laszlo-ratesic/block-dust#readme",
   "dependencies": {
+    "@popperjs/core": "^2.11.4",
+    "@types/lodash.merge": "^4.6.6",
     "bcrypt": "^5.0.1",
+    "bootstrap": "^5.1.3",
+    "bootstrap-maxlength": "^1.10.1",
     "connect-session-sequelize": "^7.1.2",
     "dotenv": "^16.0.0",
     "express": "^4.17.3",
     "express-handlebars": "^6.0.3",
     "express-session": "^1.17.2",
+    "list.js": "^2.3.1",
+    "lodash.merge": "^4.6.2",
     "mysql2": "^2.3.3",
     "sequelize": "^6.17.0"
+  },
+  "devDependencies": {
+    "compass-mixins": "^0.12.11"
   }
 }
