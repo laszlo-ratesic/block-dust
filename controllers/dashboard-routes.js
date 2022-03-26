@@ -4,9 +4,12 @@ const { Post, User, Comment } = require('../models');
 // const withAuth = require('../utils/auth')
 
 router.get('/', (req, res) => {
+    if (req.session.loggedIn) {
+        res.render('dashboard');
+    } else {
+        res.redirect('/authentication/sign-in');
+    }
     console.log(req.session);
-
-    res.render('dashboard');
 });
 
 module.exports = router;
