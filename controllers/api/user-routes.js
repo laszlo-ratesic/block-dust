@@ -1,11 +1,25 @@
 const router = require('express').Router();
 const { User, Post, Comment } = require('../../models');
 
+// GET ALL USERS ROUTE
+router.get("/", (req, res) => {
+  // Access our User model and run .findAll() method
+  User.findAll({
+    attributes: { exclude: ["password"] },
+  })
+    .then((dbUserData) => res.json(dbUserData))
+    .catch((err) => {
+      console.log(err);
+      res.status(500).json(err);
+    });
+});
+
+// SIGN-UP ROUTE
 router.post('/', (req, res) => {
   User.create({
     username: req.body.username,
     email: req.body.email,
-    password: req.params.password,
+    password: req.body.password,
   })
     .then((dbUserData) => {
       req.session.save(() => {
@@ -23,6 +37,7 @@ router.post('/', (req, res) => {
     });
 });
 
+// LOGIN ROUTE
 router.post('/login', (req, res) => {
   User.findOne({
     where: {
@@ -46,8 +61,23 @@ router.post('/login', (req, res) => {
       req.session.loggedIn = true;
 
       res.json({ user: dbUserData, message: 'You are now logged in!' });
+      res.render('dashboard');
     });
   });
 });
+
+// LOGOUT ROUTE
+router.post('/logout', (req, res) => {
+  if (req.session.loggedIn) {
+    req.session.destroy(() => {
+      res.status(204).end();
+      res.render('sign-out');
+    });
+  }
+  else {
+    res.status(404).end();
+  }
+})
+
 
 module.exports = router;

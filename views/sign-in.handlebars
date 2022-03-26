@@ -3,7 +3,7 @@
     <div class="col-sm-10 col-md-8 col-lg-5 col-xl-5 col-xxl-3">
       <a class="d-flex flex-center text-decoration-none mb-4" href="/">
         <div class="d-flex align-items-center">
-          <img src="/img/icons/logo.png" alt="phoenix" width="58" />
+          <img src="/img/icons/logo.png" alt="blockdust" width="58" />
         </div>
       </a>
       <div class="text-center mb-7">
@@ -28,56 +28,61 @@
           or use email
         </div>
       </div>
-      <div class="mb-3 text-start">
-        <label class="form-label" for="email">
-          Email address
-        </label>
-        <div class="form-icon-container">
-          <input
-            class="form-control form-icon-input"
-            id="email"
-            type="email"
-            placeholder="name@example.com"
-          />
-          <span class="fas fa-user text-900 fs--1 form-icon"></span>
-        </div>
-      </div>
-      <div class="mb-3 text-start">
-        <label class="form-label" for="password">
-          Password
-        </label>
-        <div class="form-icon-container">
-          <input
-            class="form-control form-icon-input"
-            type="password"
-            placeholder="Password"
-          />
-          <span class="fas fa-user text-900 fs--1 form-icon"></span>
-        </div>
-      </div>
-      <div class="row flex-between-center mb-7">
-        <div class="col-auto">
-          <div class="form-check mb-0">
+      <form class="login-form">
+        <div class="mb-3 text-start">
+          <label class="form-label" for="email">
+            Email address
+          </label>
+          <div class="form-icon-container">
             <input
-              class="form-check-input"
-              id="basic-checkbox"
-              type="checkbox"
-              checked="checked"
+              class="form-control form-icon-input"
+              id="email"
+              type="email"
+              placeholder="name@example.com"
             />
-            <label class="form-check-label mb-0" for="basic-checkbox">
-              Remember me
-            </label>
+            <span class="fas fa-user text-900 fs--1 form-icon"></span>
           </div>
         </div>
-        <div class="col-auto">
-          <a class="fs--1 fw-semi-bold" href="/authentication/forgot-password">
-            Forgot Password?
-          </a>
+        <div class="mb-3 text-start">
+          <label class="form-label" for="password">
+            Password
+          </label>
+          <div class="form-icon-container">
+            <input
+              class="form-control form-icon-input"
+              type="password"
+              placeholder="Password"
+            />
+            <span class="fas fa-user text-900 fs--1 form-icon"></span>
+          </div>
         </div>
-      </div>
-      <button class="btn btn-primary w-100 mb-3">
-        Sign In
-      </button>
+        <div class="row flex-between-center mb-7">
+          <div class="col-auto">
+            <div class="form-check mb-0">
+              <input
+                class="form-check-input"
+                id="basic-checkbox"
+                type="checkbox"
+                checked="checked"
+              />
+              <label class="form-check-label mb-0" for="basic-checkbox">
+                Remember me
+              </label>
+            </div>
+          </div>
+          <div class="col-auto">
+            <a
+              class="fs--1 fw-semi-bold"
+              href="/authentication/forgot-password"
+            >
+              Forgot Password?
+            </a>
+          </div>
+        </div>
+        <button class="btn btn-primary w-100 mb-3" type="submit">
+          Sign In
+        </button>
+      </form>
       <div class="text-center">
         <a class="fs--1 fw-bold" href="/authentication/sign-up">
           Create an account
@@ -86,3 +91,4 @@
     </div>
   </div>
 </div>
+<script src="/js/auth.js"></script>
