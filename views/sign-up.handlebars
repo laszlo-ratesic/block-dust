@@ -1,16 +1,9 @@
 <div class="container">
   <div class="row flex-center min-vh-100 py-5">
     <div class="col-sm-10 col-md-8 col-lg-5 col-xl-5 col-xxl-3">
-      <a
-        class="d-flex flex-center text-decoration-none mb-4"
-        href="/"
-      >
+      <a class="d-flex flex-center text-decoration-none mb-4" href="/">
         <div class="d-flex align-items-center">
-          <img
-            src="/img/icons/logo.png"
-            alt="block dust"
-            width="58"
-          />
+          <img src="/img/icons/logo.png" alt="block dust" width="58" />
         </div>
       </a>
       <div class="text-center mb-7">
@@ -35,45 +28,39 @@
           or use email
         </div>
       </div>
-      <form>
+      <form class="signup-form">
         <div class="mb-3 text-start">
-          <label class="form-label" for="name">
-            Name
+          <label class="form-label" for="username-signup">
+            Username
           </label>
-          <input class="form-control" id="name" placeholder="Name" />
+          <input
+            class="form-control"
+            id="username-signup"
+            placeholder="Username"
+          />
         </div>
         <div class="mb-3 text-start">
-          <label class="form-label" for="email">
+          <label class="form-label" for="email-signup">
             Email address
           </label>
           <input
             class="form-control"
-            id="email"
+            id="email-signup"
             type="email"
             placeholder="name@example.com"
           />
         </div>
         <div class="row g-3 mb-3">
-          <div class="col-md-6">
-            <label class="form-label" for="password">
-              Password
-            </label>
-            <input
-              class="form-control form-icon-input"
-              type="password"
-              placeholder="Password"
-            />
-          </div>
-          <div class="col-md-6">
-            <label class="form-label" for="confirm_password">
-              Confirm Password
-            </label>
-            <input
-              class="form-control form-icon-input"
-              type="confirm_password"
-              placeholder="Confirm Password"
-            />
-          </div>
+          <label class="form-label" for="password-signup">
+            Password
+          </label>
+          <input
+            class="form-control form-icon-input"
+            type="password"
+            id="password-signup"
+            autocomplete="current-password"
+            placeholder="Password"
+          />
         </div>
         <div class="form-check mb-3">
           <input class="form-check-input" id="termsService" type="checkbox" />
@@ -88,14 +75,11 @@
             </a>
           </label>
         </div>
-        <button class="btn btn-primary w-100 mb-3">
+        <button class="btn btn-primary w-100 mb-3" type="submit">
           Sign up
         </button>
         <div class="text-center">
-          <a
-            class="fs--1 fw-bold"
-            href="/authentication/sign-in"
-          >
+          <a class="fs--1 fw-bold" href="/authentication/sign-in">
             Log into an existing account
           </a>
         </div>
@@ -103,3 +87,4 @@
     </div>
   </div>
 </div>
+<script src="/js/sign-up.js"></script>
