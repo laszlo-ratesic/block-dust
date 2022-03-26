@@ -5,7 +5,7 @@ const { Post, User, Comment } = require('../models');
 
 router.get('/', (req, res) => {
     if (req.session.loggedIn) {
-        res.render('dashboard');
+        res.render('dashboard', {loggedIn: req.session.loggedIn});
     } else {
         res.redirect('/authentication/sign-in');
     }

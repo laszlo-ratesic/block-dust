@@ -22,7 +22,7 @@
             </p>
             <a
               class="nav-link"
-              href="/"
+              href="/feed"
               role="button"
               data-bs-toggle=""
               aria-expanded="false"
@@ -56,35 +56,11 @@
                 </span>
               </div>
             </a>
+
             <ul class="nav collapse parent" id="authentication">
-              <li class="nav-item">
-                <a
-                  class="nav-link"
-                  href="authentication/sign-in"
-                  data-bs-toggle=""
-                  aria-expanded="false"
-                >
-                  <div class="d-flex align-items-center">
-                    <span class="nav-link-text">
-                      Sign in
-                    </span>
-                  </div>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a
-                  class="nav-link"
-                  href="authentication/sign-up"
-                  data-bs-toggle=""
-                  aria-expanded="false"
-                >
-                  <div class="d-flex align-items-center">
-                    <span class="nav-link-text">
-                      Sign up
-                    </span>
-                  </div>
-                </a>
-              </li>
+
+              {{#if loggedIn}}
+              {{!-- SIGN-OUT --}}
               <li class="nav-item">
                 <a
                   href="/authentication/sign-out"
@@ -99,20 +75,7 @@
                   </div>
                 </a>
               </li>
-              <li class="nav-item">
-                <a
-                  class="nav-link"
-                  href="/authentication/forgot-password"
-                  data-bs-toggle=""
-                  aria-expanded="false"
-                >
-                  <div class="d-flex align-items-center">
-                    <span class="nav-link-text">
-                      Forgot password
-                    </span>
-                  </div>
-                </a>
-              </li>
+              {{!-- RESET PASS --}}
               <li class="nav-item">
                 <a
                   class="nav-link"
@@ -127,6 +90,7 @@
                   </div>
                 </a>
               </li>
+              {{!-- LOCK SCREEN --}}
               <li class="nav-item">
                 <a
                   class="nav-link"
@@ -141,7 +105,55 @@
                   </div>
                 </a>
               </li>
+              {{else}}
+              {{!-- SIGN-UP --}}
+              <li class="nav-item">
+                <a
+                  class="nav-link"
+                  href="authentication/sign-up"
+                  data-bs-toggle=""
+                  aria-expanded="false"
+                >
+                  <div class="d-flex align-items-center">
+                    <span class="nav-link-text">
+                      Sign up
+                    </span>
+                  </div>
+                </a>
+              </li>
+              {{!-- SIGN-IN --}}
+              <li class="nav-item">
+                <a
+                  class="nav-link"
+                  href="authentication/sign-in"
+                  data-bs-toggle=""
+                  aria-expanded="false"
+                >
+                  <div class="d-flex align-items-center">
+                    <span class="nav-link-text">
+                      Sign in
+                    </span>
+                  </div>
+                </a>
+              </li>
+              {{!-- FORGOT PASS --}}
+              <li class="nav-item">
+                <a
+                  class="nav-link"
+                  href="/authentication/forgot-password"
+                  data-bs-toggle=""
+                  aria-expanded="false"
+                >
+                  <div class="d-flex align-items-center">
+                    <span class="nav-link-text">
+                      Forgot password
+                    </span>
+                  </div>
+                </a>
+              </li>
+              {{/if}}
             </ul>
+
           </li>
         </ul>
       </div>
