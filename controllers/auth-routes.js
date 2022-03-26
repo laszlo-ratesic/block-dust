@@ -23,14 +23,14 @@ router.get("/sign-up", (req, res) => {
   res.render("sign-up");
 });
 
-// router.get("/sign-out", (req, res) => {
-//   //   if (req.session.loggedIn === false) {
-//   //     res.redirect("/");
-//   //     return;
-//   //   }
+router.get("/sign-out", (req, res) => {
+    if (req.session.loggedIn === false) {
+      res.redirect("/");
+      return;
+    }
 
-//   // res.render("sign-out");
-// });
+  res.render("sign-out");
+});
 
 router.get("/forgot-password", (req, res) => {
   if (req.session.loggedIn) {
