@@ -1,0 +1,36 @@
+{{! TITLE }}
+<td class="align-middle title white-space-nowrap" style="min-width:360px;">
+  <h6 class="fw-semi-bold mb-0">
+    {{title}}
+  </h6>
+</td>
+{{! USER }}
+<td class="align-middle user white-space-nowrap" style="min-width:200px;">
+  <div class="d-flex align-items-center">
+    <div class="avatar avatar-l">
+      <img class="rounded-circle" src="/img/team/59.png" alt="" />
+    </div>
+    <h6 class="mb-0 ms-3 text-900">
+      {{user.username}}
+    </h6>
+  </div>
+</td>
+{{! COMMENTS }}
+<td class="align-middle comments white-space-nowrap" style="min-width:110px;">
+  <span class="fa fa-comments text-primary"></span>
+  {{comments.length}} {{format_plural "comment" comments.length}}
+</td>
+{{! POST }}
+<td class="align-middle post" style="min-width:350px;width:500px;">
+  <p class="fs--1 fw-semi-bold text-1000 mb-0">
+      {{post_text}}
+  </p>
+</td>
+{{! TIME }}
+<td class="align-middle text-end time white-space-nowrap">
+  <div>
+    <h6 class="text-1000 mb-0">
+      {{format_date created_at}}
+    </h6>
+  </div>
+</td>
