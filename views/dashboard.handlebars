@@ -24,7 +24,7 @@
     <div class="row">
       {{!-- prettier-ignore --}}
       <div
-        data-list='{"valueNames":["title","user","comments","post","time"],"page":6}'
+        data-list='{"valueNames":["title","comments","post","time"],"page":6}'
       >
         {{! Posts Header }}
         <div class="row align-items-end justify-content-between pb-5 g-3">
@@ -69,7 +69,7 @@
         </div>
         {{! Posts Table }}
         <div class="table-responsive mx-n1 px-1 scrollbar">
-          <table class="table table-hover table-striped fs--2 mb-0 overflow-hidden">
+          <table class="table table-striped fs--2 mb-0 overflow-hidden">
             <thead>
               <tr>
                 <th
@@ -83,26 +83,10 @@
                 <th
                   class="sort border-top align-middle"
                   scope="col"
-                  data-sort="user"
-                  style="min-width:200px;"
-                >
-                  USER
-                </th>
-                <th
-                  class="sort border-top align-middle"
-                  scope="col"
                   data-sort="comments"
                   style="min-width:110px;"
                 >
                   COMMENTS
-                </th>
-                <th
-                  class="sort border-top align-middle"
-                  scope="col"
-                  style="max-width:350px;"
-                  data-sort="post"
-                >
-                  POST
                 </th>
                 <th
                   class="sort border-top text-end align-middle"
@@ -120,296 +104,13 @@
               </tr>
             </thead>
             <tbody class="list" id="table-latest-post-body">
-              <!-- Sample Post 1 -->
+              {{#each posts as |post|}}
               <tr
                 class="hover-actions-trigger btn-reveal-trigger position-static"
               >
-                <td
-                  class="align-middle title white-space-nowrap"
-                  style="min-width:360px;"
-                >
-                  <h6 class="fw-semi-bold mb-0">
-                    Fitbit Sense Advanced Smartwatch with Tools
-                  </h6>
-                </td>
-                <td
-                  class="align-middle user white-space-nowrap"
-                  style="min-width:200px;"
-                >
-                  <div class="d-flex align-items-center">
-                    <div class="avatar avatar-l">
-                      <div class="avatar-name rounded-circle">
-                        <span>
-                          R
-                        </span>
-                      </div>
-                    </div>
-                    <h6 class="mb-0 ms-3 text-900">
-                      Richard Dawkins
-                    </h6>
-                  </div>
-                </td>
-                <td
-                  class="align-middle comments white-space-nowrap"
-                  style="min-width:110px;"
-                >
-                  <span class="fa fa-star text-warning"></span>
-                  <span class="fa fa-star text-warning"></span>
-                  <span class="fa fa-star text-warning"></span>
-                  <span class="fa fa-star text-warning"></span>
-                  <span class="fa fa-star text-warning"></span>
-                </td>
-                <td
-                  class="align-middle post"
-                  style="min-width:350px;width:500px;"
-                >
-                  <p class="fs--1 fw-semi-bold text-1000 mb-0">
-                    Very helpful to get going with rapid prototype development. Great support via email when I asked question.
-                  </p>
-                </td>
-                <td class="align-middle text-end time white-space-nowrap">
-                  <div class="hover-hide">
-                    <h6 class="text-1000 mb-0">
-                      Just now
-                    </h6>
-                  </div>
-                </td>
-                <td class="align-middle white-space-nowrap text-end pe-0">
-                  <div class="position-relative">
-                    <div class="hover-actions">
-                      <button
-                        class="btn btn-sm btn-phoenix-secondary me-1 fs--2"
-                      >
-                        <span class="fas fa-check"></span>
-                      </button>
-                      <button class="btn btn-sm btn-phoenix-secondary fs--2">
-                        <span class="fas fa-trash"></span>
-                      </button>
-                    </div>
-                  </div>
-                  <div class="font-sans-serif btn-reveal-trigger">
-                    <button
-                      class="btn btn-link fs--2 text-600 btn-sm dropdown-toggle dropdown-caret-none transition-none btn-reveal"
-                      type="button"
-                      data-bs-toggle="dropdown"
-                      data-boundary="window"
-                      aria-haspopup="true"
-                      aria-expanded="false"
-                      data-bs-reference="parent"
-                    >
-                      <span class="fas fa-ellipsis-h fs--2"></span>
-                    </button>
-                    <div class="dropdown-menu dropdown-menu-end border py-2">
-                      <a class="dropdown-item" href="#!">
-                        View
-                      </a>
-                      <a class="dropdown-item" href="#!">
-                        Export
-                      </a>
-                      <div class="dropdown-divider"></div>
-                      <a class="dropdown-item text-danger" href="#!">
-                        Remove
-                      </a>
-                    </div>
-                  </div>
-                </td>
+              {{> post-info post}}
               </tr>
-              <!-- End of Sample Post 1 -->
-              <!-- Sample Post 2 -->
-              <tr
-                class="hover-actions-trigger btn-reveal-trigger position-static"
-              >
-                <td
-                  class="align-middle title white-space-nowrap"
-                  style="min-width:360px;"
-                >
-                  <h6 class="fw-semi-bold mb-0">
-                    iPhone 13 pro max-Pacific Blue-128GB storage
-                  </h6>
-                </td>
-                <td
-                  class="align-middle user white-space-nowrap"
-                  style="min-width:200px;"
-                >
-                  <div class="d-flex align-items-center">
-                    <div class="avatar avatar-l">
-                      <img
-                        class="rounded-circle"
-                        src="/img/team/59.png"
-                        alt=""
-                      />
-                    </div>
-                    <h6 class="mb-0 ms-3 text-900">
-                      Ashley Garrett
-                    </h6>
-                  </div>
-                </td>
-                <td
-                  class="align-middle comments white-space-nowrap"
-                  style="min-width:110px;"
-                >
-                  <span class="fa fa-star text-warning"></span>
-                  <span class="fa fa-star text-warning"></span>
-                  <span class="fa fa-star text-warning"></span>
-                  <span class="fa fa-star text-300"></span>
-                  <span class="fa fa-star text-300"></span>
-                </td>
-                <td
-                  class="align-middle post"
-                  style="min-width:350px;width:500px;"
-                >
-                  <p class="fs--1 fw-semi-bold text-1000 mb-0">
-                    This template has allowed me to convert my existing web app into a great looking, easy to use UI in less than 2 weeks
-                  </p>
-                </td>
-                <td class="align-middle text-end time white-space-nowrap">
-                  <div class="hover-hide">
-                    <h6 class="text-1000 mb-0">
-                      Just now
-                    </h6>
-                  </div>
-                </td>
-                <td class="align-middle white-space-nowrap text-end pe-0">
-                  <div class="position-relative">
-                    <div class="hover-actions">
-                      <button
-                        class="btn btn-sm btn-phoenix-secondary me-1 fs--2"
-                      >
-                        <span class="fas fa-check"></span>
-                      </button>
-                      <button class="btn btn-sm btn-phoenix-secondary fs--2">
-                        <span class="fas fa-trash"></span>
-                      </button>
-                    </div>
-                  </div>
-                  <div class="font-sans-serif btn-reveal-trigger">
-                    <button
-                      class="btn btn-link fs--2 text-600 btn-sm dropdown-toggle dropdown-caret-none transition-none btn-reveal"
-                      type="button"
-                      data-bs-toggle="dropdown"
-                      data-boundary="window"
-                      aria-haspopup="true"
-                      aria-expanded="false"
-                      data-bs-reference="parent"
-                    >
-                      <span class="fas fa-ellipsis-h fs--2"></span>
-                    </button>
-                    <div class="dropdown-menu dropdown-menu-end border py-2">
-                      <a class="dropdown-item" href="#!">
-                        View
-                      </a>
-                      <a class="dropdown-item" href="#!">
-                        Export
-                      </a>
-                      <div class="dropdown-divider"></div>
-                      <a class="dropdown-item text-danger" href="#!">
-                        Remove
-                      </a>
-                    </div>
-                  </div>
-                </td>
-              </tr>
-              <!-- End of Sample Post 2 -->
-              <!-- Sample Post 3 -->
-              <tr
-                class="hover-actions-trigger btn-reveal-trigger position-static"
-              >
-                <td
-                  class="align-middle title white-space-nowrap"
-                  style="min-width:360px;"
-                >
-                  <h6 class="fw-semi-bold mb-0">
-                    Apple MacBook Pro 13 inch-M1-8/256GB-space
-                  </h6>
-                </td>
-                <td
-                  class="align-middle user white-space-nowrap"
-                  style="min-width:200px;"
-                >
-                  <div class="d-flex align-items-center">
-                    <div class="avatar avatar-l">
-                      <img
-                        class="rounded-circle"
-                        src="/img/team/58.png"
-                        alt=""
-                      />
-                    </div>
-                    <h6 class="mb-0 ms-3 text-900">
-                      Woodrow Burton
-                    </h6>
-                  </div>
-                </td>
-                <td
-                  class="align-middle comments white-space-nowrap"
-                  style="min-width:110px;"
-                >
-                  <span class="fa fa-star text-warning"></span>
-                  <span class="fa fa-star text-warning"></span>
-                  <span class="fa fa-star text-warning"></span>
-                  <span class="fa fa-star text-warning"></span>
-                  <span
-                    class="fa fa-star-half-alt text-warning star-icon"
-                  ></span>
-                </td>
-                <td
-                  class="align-middle post"
-                  style="min-width:350px;width:500px;"
-                >
-                  <p class="fs--1 fw-semi-bold text-1000 mb-0">
-                    I have started using this theme in the last week and it has really impressed me very much, the support is second to n...
-                    <a href="#!">
-                      See more
-                    </a>
-                  </p>
-                </td>
-                <td class="align-middle text-end time white-space-nowrap">
-                  <div class="hover-hide">
-                    <h6 class="text-1000 mb-0">
-                      Just now
-                    </h6>
-                  </div>
-                </td>
-                <td class="align-middle white-space-nowrap text-end pe-0">
-                  <div class="position-relative">
-                    <div class="hover-actions">
-                      <button
-                        class="btn btn-sm btn-phoenix-secondary me-1 fs--2"
-                      >
-                        <span class="fas fa-check"></span>
-                      </button>
-                      <button class="btn btn-sm btn-phoenix-secondary fs--2">
-                        <span class="fas fa-trash"></span>
-                      </button>
-                    </div>
-                  </div>
-                  <div class="font-sans-serif btn-reveal-trigger">
-                    <button
-                      class="btn btn-link fs--2 text-600 btn-sm dropdown-toggle dropdown-caret-none transition-none btn-reveal"
-                      type="button"
-                      data-bs-toggle="dropdown"
-                      data-boundary="window"
-                      aria-haspopup="true"
-                      aria-expanded="false"
-                      data-bs-reference="parent"
-                    >
-                      <span class="fas fa-ellipsis-h fs--2"></span>
-                    </button>
-                    <div class="dropdown-menu dropdown-menu-end border py-2">
-                      <a class="dropdown-item" href="#!">
-                        View
-                      </a>
-                      <a class="dropdown-item" href="#!">
-                        Export
-                      </a>
-                      <div class="dropdown-divider"></div>
-                      <a class="dropdown-item text-danger" href="#!">
-                        Remove
-                      </a>
-                    </div>
-                  </div>
-                </td>
-              </tr>
-              <!-- End of Sample Post 3 -->
+              {{/each}}
             </tbody>
           </table>
         </div>

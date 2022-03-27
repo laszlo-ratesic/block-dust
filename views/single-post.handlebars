@@ -1,0 +1,141 @@
+{{> vertical_nav}}
+
+{{> top_nav}}
+
+{{! <!-- Main Content --> }}
+<div class="content pt-5">
+  {{! <!-- Page Header --> }}
+  <div class="pb-5">
+    <div class="row g-5">
+      <div class="col-12 col-xxl-6">
+        <div class="avatar avatar-xl mb-2">
+          <img class="rounded-circle" src="/img/team/{{post.user.id}}.png" alt="">
+        </div>
+        <h5 class="text-700 fw-semi-bold mb-3">
+          {{post.user.username}} - {{format_date post.created_at}}
+        </h5>
+        <h2 class="mb-0">
+          {{post.title}}
+        </h2>
+      </div>
+    </div>
+  </div>
+  {{! <!-- End Page Header --> }}
+  {{! <!-- Posts Component --> }}
+  <div class="mx-n6 bg-white px-6 pt-7 border-y border-300">
+    <div class="row">
+      {{!-- prettier-ignore --}}
+      <div
+        data-list='{"valueNames":["title","comments","post","time"],"page":6}'
+      >
+        {{! Posts Header }}
+        <div class="row align-items-end justify-content-between pb-5 g-3">
+          <div class="col-auto">
+            <p class="fs-2 text-900 text-dark lh-sm mb-0">
+              {{post.post_text}}
+            </p>
+          </div>
+        </div>
+        {{! Posts Table }}
+        <div class="table-responsive mx-n1 px-1 scrollbar">
+          <table class="table table-striped fs--2 mb-0 overflow-hidden">
+            <thead>
+              <tr>
+                <th
+                  class="sort border-top white-space-nowrap align-middle"
+                  scope="col"
+                  style="min-width:360px;"
+                  data-sort="title"
+                >
+                  TITLE
+                </th>
+                <th
+                  class="sort border-top align-middle"
+                  scope="col"
+                  data-sort="comments"
+                  style="min-width:110px;"
+                >
+                  COMMENTS
+                </th>
+                <th
+                  class="sort border-top align-middle"
+                  scope="col"
+                  style="max-width:350px;"
+                  data-sort="post"
+                >
+                  POST
+                </th>
+                <th
+                  class="sort border-top text-end align-middle"
+                  scope="col"
+                  data-sort="time"
+                >
+                  TIME
+                </th>
+                <th
+                  class="sort border-top text-end pe-0 align-middle"
+                  scope="col"
+                >
+                  ACTION
+                </th>
+              </tr>
+            </thead>
+            <tbody class="list" id="table-latest-post-body">
+              {{#each posts as |post|}}
+              <tr
+                class="hover-actions-trigger btn-reveal-trigger position-static"
+              >
+              {{> post-info post}}
+              </tr>
+              {{/each}}
+            </tbody>
+          </table>
+        </div>
+        {{! Pagination }}
+        <div class="row align-items-center py-2">
+          <div class="pagination d-none"></div>
+          <div class="col d-flex fs--1">
+            <p
+              class="mb-0 d-none d-sm-block me-3 fw-semi-bold text-900"
+              data-list-info
+            ></p>
+            <a class="fw-semi-bold" href="#!" data-list-view="*">
+              View all
+              <span
+                class="fas fa-angle-right ms-1"
+                data-fa-transform="down-1"
+              ></span>
+            </a>
+            <a class="fw-semi-bold d-none" href="#!" data-list-view="less">
+              View Less
+            </a>
+          </div>
+          <div class="col-auto d-flex">
+            <button
+              class="btn btn-link px-1 me-1"
+              type="button"
+              title="Previous"
+              data-list-pagination="prev"
+            >
+              <span class="fas fa-chevron-left me-2"></span>
+              Previous
+            </button>
+            <button
+              class="btn btn-link px-1 ms-1"
+              type="button"
+              title="Next"
+              data-list-pagination="next"
+            >
+              Next
+              <span class="fas fa-chevron-right ms-2"></span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  {{!-- Footer --}}
+  <footer class="footer">
+    {{> footer}}
+  </footer>
+</div>

@@ -4,33 +4,74 @@
     {{title}}
   </h6>
 </td>
-{{! USER }}
-<td class="align-middle user white-space-nowrap" style="min-width:200px;">
-  <div class="d-flex align-items-center">
-    <div class="avatar avatar-l">
-      <img class="rounded-circle" src="/img/team/59.png" alt="" />
+{{#if user.username}}
+  {{! USER }}
+  <td class="align-middle user white-space-nowrap" style="min-width:200px;">
+    <div class="d-flex align-items-center">
+      <div class="avatar avatar-l">
+        <img class="rounded-circle" src="/img/team/{{user.id}}.png" alt="" />
+      </div>
+      <h6 class="mb-0 ms-3 text-900">
+        {{user.username}}
+      </h6>
     </div>
-    <h6 class="mb-0 ms-3 text-900">
-      {{user.username}}
-    </h6>
-  </div>
-</td>
+  </td>
+{{/if}}
 {{! COMMENTS }}
 <td class="align-middle comments white-space-nowrap" style="min-width:110px;">
   <span class="fa fa-comments text-primary"></span>
-  {{comments.length}} {{format_plural "comment" comments.length}}
-</td>
-{{! POST }}
-<td class="align-middle post" style="min-width:350px;width:500px;">
-  <p class="fs--1 fw-semi-bold text-1000 mb-0">
-      {{post_text}}
-  </p>
+  {{comments.length}}
+  {{format_plural 'comment' comments.length}}
 </td>
 {{! TIME }}
 <td class="align-middle text-end time white-space-nowrap">
+  {{#if user.username}}
   <div>
+  {{else}}
+  <div class="hover-hide">
+  {{/if}}
     <h6 class="text-1000 mb-0">
       {{format_date created_at}}
     </h6>
   </div>
 </td>
+{{#unless user.username}}
+{{! ACTION }}
+<td class="align-middle white-space-nowrap text-end pe-0">
+  <div class="position-relative">
+    <div class="hover-actions">
+      <button class="btn btn-sm btn-phoenix-secondary me-1 fs--2">
+        <span class="fas fa-check"></span>
+      </button>
+      <button class="btn btn-sm btn-phoenix-secondary fs--2">
+        <span class="fas fa-trash"></span>
+      </button>
+    </div>
+  </div>
+  <div class="font-sans-serif btn-reveal-trigger">
+    <button
+      class="btn btn-link fs--2 text-600 btn-sm dropdown-toggle dropdown-caret-none transition-none btn-reveal"
+      type="button"
+      data-bs-toggle="dropdown"
+      data-boundary="window"
+      aria-haspopup="true"
+      aria-expanded="false"
+      data-bs-reference="parent"
+    >
+      <span class="fas fa-ellipsis-h fs--2"></span>
+    </button>
+    <div class="dropdown-menu dropdown-menu-end border py-2">
+      <a class="dropdown-item" href="#!">
+        View
+      </a>
+      <a class="dropdown-item" href="#!">
+        Export
+      </a>
+      <div class="dropdown-divider"></div>
+      <a class="dropdown-item text-danger" href="#!">
+        Remove
+      </a>
+    </div>
+  </div>
+</td>
+{{/unless}}

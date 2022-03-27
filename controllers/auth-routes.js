@@ -50,6 +50,15 @@ router.get('/lock-screen', (req, res) => {
     res.render('dashboard', { loggedIn: req.session.loggedIn });
   }
 
-  res.render('lock-screen');
+  User.findOne({
+    where: {
+      id: req.session.user_id
+    },
+    attributes: ['id', 'username'],
+  })
+  .then((dbUserData) => {
+    const user = dbUserData.get({ plain: true });
+    res.render('lock-screen', { user });
+  })
 });
 module.exports = router;

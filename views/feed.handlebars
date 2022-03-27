@@ -84,14 +84,6 @@
                   COMMENTS
                 </th>
                 <th
-                  class="sort border-top align-middle"
-                  scope="col"
-                  style="max-width:350px;"
-                  data-sort="post"
-                >
-                  POST
-                </th>
-                <th
                   class="sort border-top text-end align-middle"
                   scope="col"
                   data-sort="time"
@@ -102,7 +94,7 @@
             </thead>
             <tbody class="list" id="table-latest-post-body">
               {{#each posts as |post|}}
-                <tr class="hover-actions-trigger btn-reveal-trigger position-static" style="cursor: pointer;">
+                <tr onclick="window.location='/post/{{id}}'" class="hover-actions-trigger btn-reveal-trigger position-static" style="cursor: pointer;">
                   {{> post-info post}}
                 </tr>
               {{/each}}
