@@ -1,7 +1,13 @@
 {{! TITLE }}
 <td class="align-middle title white-space-nowrap" style="min-width:360px;">
   <h6 class="fw-semi-bold mb-0">
+    {{#if user.username}}
     {{title}}
+    {{else}}
+    <a href="/post/{{id}}" style="text-decoration: none;" class="text-dark">
+    {{title}}
+    </a>
+    {{/if}}
   </h6>
 </td>
 {{#if user.username}}
@@ -43,8 +49,11 @@
       <a href="/post/{{id}}" class="btn btn-sm btn-phoenix-secondary me-1">
         <span class="fas fa-expand"></span>
       </a>
-      <button class="btn btn-sm btn-phoenix-secondary">
+      <button class="btn btn-sm btn-phoenix-secondary me-1">
         <span class="fas fa-edit"></span>
+      </button>
+      <button class="btn btn-sm btn-phoenix-secondary">
+        <span class="fas fa-trash"></span>
       </button>
     </div>
   </div>
