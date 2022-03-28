@@ -273,7 +273,11 @@
             aria-expanded="false"
           >
             <div class="avatar avatar-l">
+              {{#if id}}
               <img class="rounded-circle" src="/img/team/{{id}}.png" alt="" />
+              {{else}}
+              <img class="rounded-circle" src="/img/team/1.png" alt="" />
+              {{/if}}
             </div>
           </a>
           <div
@@ -302,9 +306,15 @@
 
                     {{/if}}
                   </div>
+                  {{#if username}}
                   <h6 class="mt-2">
                     {{username}}
                   </h6>
+                  {{else}}
+                  <h6 class="mt-2">
+                    New User
+                  </h6>
+                  {{/if}}
                 </div>
                 <div class="mb-3 mx-3">
                   <input
