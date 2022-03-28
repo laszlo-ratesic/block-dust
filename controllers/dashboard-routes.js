@@ -6,6 +6,9 @@ const { Post, User, Comment } = require('../models');
 router.get('/', (req, res) => {
     if (req.session.loggedIn) {
         Post.findAll({
+            where: {
+                user_id: req.session.user_id
+            },
           attributes: ['id', 'title', 'post_text', 'created_at'],
           include: [
             {
@@ -20,7 +23,7 @@ router.get('/', (req, res) => {
         })
         .then((dbPostData) => {
             const posts = dbPostData.map(post => post.get({ plain: true }));
-            res.render('dashboard', { posts, loggedIn: req.session.loggedIn, id: req.session.user_id });
+            res.render('dashboard', { posts, loggedIn: req.session.loggedIn, id: req.session.user_id, username: req.session.username });
         })
         .catch(err => {
             console.log(err);

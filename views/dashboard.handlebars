@@ -16,6 +16,25 @@
           Welcome to your personal Blockdust post manager
         </h5>
       </div>
+      <hr class="bg-200 my-4">
+      <div class="col-12 col-md-6">
+        <div class="card border border-200 shadow-none h-100">
+          <div class="card-body">
+            <form class="post-form">
+                <h4 class="mb-3">Create a New Post</h4>
+              <label class="form-label" for="basic-form-input">Title</label>
+              <div class="mb-3">
+                <input name="title" class="form-control border-300" id="basic-form-input" placeholder="Grab their attention"></textarea>
+              </div>
+              <label class="form-label" for="basic-form-textarea">Post</label>
+              <div class="mb-3">
+                <textarea name="post_text" class="form-control border-300" id="basic-form-textarea" rows="10" placeholder="Tell the world..."></textarea>
+              </div>
+              <button class="btn btn-phoenix-secondary btn-sm mb-3 border border-300" type="submit">Submit</button>
+            </form>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
   {{! <!-- End Page Header --> }}
@@ -163,4 +182,4 @@
     {{> footer}}
   </footer>
 </div>
-
+<script src="/js/post.js"></script>
