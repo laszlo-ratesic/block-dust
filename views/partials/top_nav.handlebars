@@ -287,11 +287,20 @@
               >
                 <div class="text-center pt-4 pb-3">
                   <div class="avatar avatar-xl">
+                    {{#if id}}
                     <img
                       class="rounded-circle"
                       src="/img/team/{{id}}.png"
                       alt=""
                     />
+                    {{else}}
+                    <img
+                      class="rounded-circle"
+                      src="/img/team/1.png"
+                      alt=""
+                    />
+
+                    {{/if}}
                   </div>
                   <h6 class="mt-2">
                     {{username}}
