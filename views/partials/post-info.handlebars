@@ -40,11 +40,11 @@
 <td class="align-middle white-space-nowrap text-end pe-0">
   <div class="position-relative">
     <div class="hover-actions">
-      <button class="btn btn-sm btn-phoenix-secondary me-1 fs--2">
-        <span class="fas fa-check"></span>
-      </button>
-      <button class="btn btn-sm btn-phoenix-secondary fs--2">
-        <span class="fas fa-trash"></span>
+      <a href="/post/{{id}}" class="btn btn-sm btn-phoenix-secondary me-1">
+        <span class="fas fa-expand"></span>
+      </a>
+      <button class="btn btn-sm btn-phoenix-secondary">
+        <span class="fas fa-edit"></span>
       </button>
     </div>
   </div>
@@ -58,14 +58,14 @@
       aria-expanded="false"
       data-bs-reference="parent"
     >
-      <span class="fas fa-ellipsis-h fs--2"></span>
+      <span class="fas fa-ellipsis-h"></span>
     </button>
     <div class="dropdown-menu dropdown-menu-end border py-2">
       <a class="dropdown-item" href="/post/{{id}}">
         View
       </a>
       <a class="dropdown-item" href="#!">
-        Export
+        Edit
       </a>
       <div class="dropdown-divider"></div>
       <a class="dropdown-item text-danger" href="#!">
