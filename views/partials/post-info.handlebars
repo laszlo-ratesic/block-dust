@@ -49,10 +49,10 @@
       <a href="/post/{{id}}" class="btn btn-sm btn-phoenix-secondary me-1">
         <span class="fas fa-expand"></span>
       </a>
-      <button class="btn btn-sm btn-phoenix-secondary me-1">
+      <a href="/dashboard/edit/{{id}}" class="btn btn-sm btn-phoenix-secondary me-1">
         <span class="fas fa-edit"></span>
-      </button>
-      <button class="btn btn-sm btn-phoenix-secondary">
+      </a>
+      <button class="btn btn-sm btn-phoenix-secondary delete-post-btn" data-post="{{id}}">
         <span class="fas fa-trash"></span>
       </button>
     </div>
@@ -73,13 +73,13 @@
       <a class="dropdown-item" href="/post/{{id}}">
         View
       </a>
-      <a class="dropdown-item" href="#!">
+      <a class="dropdown-item" href="/dashboard/edit/{{id}}">
         Edit
       </a>
       <div class="dropdown-divider"></div>
-      <a class="dropdown-item text-danger" href="#!">
+      <button class="dropdown-item text-danger delete-post-btn" data-post="{{id}}">
         Remove
-      </a>
+      </button>
     </div>
   </div>
 </td>
