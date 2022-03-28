@@ -1,4 +1,5 @@
 const deletePostBtn = document.querySelectorAll('.delete-post-btn');
+const postForm = document.querySelector('.post-form');
 
 // CREATE a post
 async function postFormHandler(event) {
@@ -57,6 +58,6 @@ if (deletePostBtn) {
   }
 }
 
-document
-  .querySelector('.post-form')
-  .addEventListener('submit', postFormHandler);
+if (postForm) {
+  postForm.addEventListener('submit', postFormHandler);
+}

@@ -4,41 +4,44 @@
 
 {{! <!-- Main Content --> }}
 <div class="content pt-5">
-
-    <form class="edit-post-form">
-  {{! <!-- Post Header --> }}
-  <div class="pb-5">
-    <div class="row g-5">
-      <div class="col-12 col-xxl-6">
+<div class="card border border-200 shadow-none h-100 mb-4">
+          <div class="card-body">
+          <form class="edit-post-form">
+    {{! <!-- Post Header --> }}
+    <div class="pb-5">
+      <div class="row g-5">
+        <div class="col-12 col-xxl-6">
           {{!-- Post-author avatar --}}
-        <div class="avatar avatar-xl mb-2">
-          <img class="rounded-circle" src="/img/team/{{post.user.id}}.png" alt="">
+          <div class="avatar avatar-xl mb-2">
+            <img class="rounded-circle" src="/img/team/{{post.user.id}}.png" alt="">
+          </div>
+          {{!-- Post-author username and date created --}}
+          <h5 class="text-700 fw-semi-bold mb-3">
+            {{post.user.username}} - {{format_date post.created_at}}
+          </h5>
+          {{!-- Title of Post --}}
+          <label for="post-title" class="form-label">Edit post title</label>
+          <input type="text" name="post-title" value="{{post.title}}" class="form-control mb-0 h2 fs-2" />
         </div>
-        {{!-- Post-author username and date created --}}
-        <h5 class="text-700 fw-semi-bold mb-3">
-          {{post.user.username}} - {{format_date post.created_at}}
-        </h5>
-        {{!-- Title of Post --}}
-        <label for="post-title" class="form-label">Edit post title</label>
-        <input type="text" name="post-title" value="{{post.title}}" class="form-control mb-0" />
       </div>
     </div>
-  </div>
-  {{! <!-- End Post Header --> }}
+    {{! <!-- End Post Header --> }}
 
+    {{! Post Text }}
+    <div class="row align-items-end justify-content-between pb-0 g-3">
+      <div class="col-12">
+        <label for="post-text" class="form-label">Edit Post content</label>
+        <textarea class="form-control fs-1 text-900 text-dark lh-sm mb-3 border-300" rows="5" name="post-text">{{post.post_text}}</textarea>
+        <button class="btn btn-phoenix-secondary btn-sm mb-0 border border-300 me-1" type="submit">Save Post</button>
+        <button class="btn btn-danger delete-post-btn btn-sm mb-0 border border-300" type="button" data-post="{{post.id}}">Delete Post</button>
+      </div>
+    </div>
+  </form>
+  </div>
+  </div>
   {{! <!-- Posts Components --> }}
   <div class="mx-n6 bg-white px-6 pt-0 border-y border-300">
     <div class="row">
-        {{! Post Text }}
-        <div class="row align-items-end justify-content-between pb-5 g-3">
-          <div class="col-auto">
-              <label for="post-text" class="form-label">Edit Post content</label>
-            <input class="form-control fs-2 text-900 text-dark lh-sm mb-3" type="textarea" rows="10" name="post-text" value="{{post.post_text}}">
-              <button class="btn btn-phoenix-secondary btn-sm mb-0 border border-300" type="submit">Save Post</button>
-          </div>
-
-        </div>
-    </form>
 
 
     {{! Comments }}
@@ -63,4 +66,5 @@
 {{#if loggedIn}}
 <script src="/js/comment.js"></script>
 <script src="/js/edit-post.js"></script>
+<script src="/js/post.js"></script>
 {{/if}}
