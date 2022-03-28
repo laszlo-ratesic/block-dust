@@ -38,7 +38,7 @@ router.get('/', (req, res) => {
     });
 });
 
-// GET one post
+// GET one post (SINGLE PAGE VIEW)
 router.get('/post/:id', (req, res) => {
   Post.findOne({
     where: {
@@ -49,6 +49,7 @@ router.get('/post/:id', (req, res) => {
       {
         model: Comment,
         attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
+        order: ['created_at', 'DESC'],
         include: {
           model: User,
           attributes: ['username'],
